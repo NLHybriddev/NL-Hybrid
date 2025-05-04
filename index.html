@@ -8,133 +8,161 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background: radial-gradient(ellipse at top, #1f1f47, #0f0f2c);
+      overflow: hidden;
       color: #fff;
-      overflow-x: hidden;
+    }
+
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://cdn.pixabay.com/photo/2022/03/13/19/06/abstract-7066907_1280.jpg') no-repeat center center;
+      background-size: cover;
+      z-index: -2;
+      filter: blur(5px) brightness(0.4);
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: -1;
     }
 
     header {
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
       padding: 2rem;
     }
 
-    .glass-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
+    .glass {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
       padding: 3rem;
+      text-align: center;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 0 40px rgba(0, 217, 255, 0.15);
       max-width: 600px;
       width: 90%;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 30px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
-    }
-
-    .glass-card:hover {
-      transform: translateY(-5px);
+      animation: fadeIn 1s ease-out;
     }
 
     h1 {
       font-size: 3rem;
-      color: #00d4ff;
-      margin-bottom: 0.5rem;
+      color: #00e5ff;
+      margin-bottom: 1rem;
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #ccc;
       margin-bottom: 2rem;
     }
 
     .button {
-      display: inline-block;
-      padding: 0.75rem 2rem;
-      background: #00d4ff;
+      background: #00e5ff;
       color: #000;
-      border-radius: 10px;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px #00e5ff;
     }
 
     .button:hover {
-      background: #00a8cc;
+      background: #00bcd4;
+      box-shadow: 0 0 15px #00e5ff;
+      transform: scale(1.05);
     }
 
     section {
-      text-align: center;
       padding: 4rem 2rem;
       max-width: 900px;
       margin: auto;
+      text-align: center;
     }
 
     section h2 {
       font-size: 2rem;
-      color: #00d4ff;
+      color: #00e5ff;
       margin-bottom: 1rem;
     }
 
     section p {
-      color: #ddd;
+      color: #ccc;
       line-height: 1.6;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      color: #aaa;
       font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 600px) {
       h1 {
         font-size: 2.2rem;
       }
-      .glass-card {
+      .glass {
         padding: 2rem;
       }
     }
   </style>
 </head>
 <body>
+  <div class="background"></div>
+  <div class="overlay"></div>
 
   <header>
-    <div class="glass-card">
+    <div class="glass">
       <h1>NL Hybrid</h1>
-      <p>Unlock every Fortnite cosmetic with a powerful stat changer.<br>Includes 48-hour access keys.</p>
+      <p>Unlock every cosmetic in Fortnite with our powerful stat changer.<br>Access secured with 48-hour keys.</p>
       <a href="#" class="button">Download NL Hybrid</a>
     </div>
   </header>
 
   <section>
-    <h2>🎮 What NL Hybrid Offers</h2>
+    <h2>💠 Features</h2>
     <p>
-      • Access every Fortnite cosmetic instantly<br>
-      • Stat changer that updates your in-game loadout<br>
-      • Fast, safe, and easy to use<br>
-      • 48-hour key system for secure access<br>
-      • Built for performance with a clean UI
+      • Instant access to all Fortnite cosmetics<br>
+      • Secure and undetected stat changer<br>
+      • Simple UI with pro-level performance<br>
+      • Keys expire every 48 hours for max security
     </p>
   </section>
 
   <section>
-    <h2>📞 Need Help?</h2>
-    <p>Contact us via Discord: <strong>@YourDiscordName</strong></p>
+    <h2>📬 Need Help?</h2>
+    <p>Join our Discord for support and updates: <strong>@YourDiscordName</strong></p>
   </section>
 
   <footer>
     &copy; 2025 NL Hybrid. All rights reserved.
   </footer>
-
 </body>
 </html>
