@@ -80,6 +80,7 @@
       font-size: 1.1rem;
       transition: all 0.3s ease;
       box-shadow: 0 0 10px #00e5ff;
+      cursor: pointer;
     }
 
     .button:hover {
@@ -111,6 +112,34 @@
       padding: 2rem;
       font-size: 0.9rem;
       color: #aaa;
+    }
+
+    .profile-section {
+      padding: 4rem 2rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      margin-top: 2rem;
+    }
+
+    .profile-section img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+    }
+
+    .profile-section h3 {
+      color: #00e5ff;
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+
+    .profile-section p {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-top: 1rem;
     }
 
     @keyframes fadeIn {
@@ -159,6 +188,18 @@
   <section>
     <h2>📬 Need Help?</h2>
     <p>Join our Discord for support and updates: <strong>@YourDiscordName</strong></p>
+  </section>
+
+  <!-- Developer Profile Section -->
+  <section class="profile-section">
+    <h2>👨‍💻 Meet the Developer</h2>
+    <img src="your-image-link-here.jpg" alt="Developer Profile Picture" />
+    <h3>Hey, I'm [Your Name]</h3>
+    <p>
+      I'm the creator of NL Hybrid, and I designed this tool to help you unlock Fortnite's best cosmetics.<br>
+      My goal is to provide an easy-to-use, safe, and secure way for players to elevate their gaming experience.<br>
+      Follow me for updates and support.
+    </p>
   </section>
 
   <footer>
