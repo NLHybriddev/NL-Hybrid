@@ -4,79 +4,131 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NL Hybrid</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #111;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
+      overflow-x: hidden;
     }
+
     header {
-      background-color: #1c1c1c;
-      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-      color: #4fc3f7;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      color: #ccc;
-    }
-    .button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #4fc3f7;
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .button:hover {
-      background-color: #29b6f6;
-    }
-    section {
       padding: 2rem;
-      max-width: 800px;
-      margin: auto;
     }
-    h2 {
-      color: #4fc3f7;
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 600px;
+      width: 90%;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #00d4ff;
       margin-bottom: 0.5rem;
     }
+
+    p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: #00d4ff;
+      color: #000;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #00a8cc;
+    }
+
+    section {
+      text-align: center;
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #00d4ff;
+      margin-bottom: 1rem;
+    }
+
+    section p {
+      color: #ddd;
+      line-height: 1.6;
+    }
+
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #1c1c1c;
-      color: #777;
+      padding: 2rem;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      .glass-card {
+        padding: 2rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>NL Hybrid</h1>
-    <p>The ultimate tool to elevate your game</p>
-    <a href="#" class="button">Download NL Hybrid</a>
+    <div class="glass-card">
+      <h1>NL Hybrid</h1>
+      <p>The ultimate enhancement tool built for performance and control.</p>
+      <a href="#" class="button">Download NL Hybrid</a>
+    </div>
   </header>
 
   <section>
-    <h2>Features</h2>
-    <p>✅ Clean UI<br>
-       ✅ Fast performance<br>
-       ✅ Secure & regularly updated<br>
-       ✅ Easy to use – even for beginners</p>
+    <h2>⚙️ Features</h2>
+    <p>
+      • Clean & modern UI<br>
+      • Blazing fast and optimized<br>
+      • Secure, lightweight, and powerful<br>
+      • Constantly updated with the latest tech<br>
+    </p>
   </section>
 
   <section>
-    <h2>Contact</h2>
-    <p>Need help? Reach out via Discord: <strong>@YourDiscordName</strong></p>
+    <h2>📞 Contact</h2>
+    <p>Need help? Reach us on Discord: <strong>@YourDiscordName</strong></p>
   </section>
 
   <footer>
