@@ -2,98 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NL Hybrid</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-
     body {
       font-family: 'Poppins', sans-serif;
-      background: radial-gradient(ellipse at top, #1f1f47, #0f0f2c);
-      overflow: hidden;
-      color: #fff;
+      background: #0e0e1c;
+      color: white;
+      overflow-x: hidden;
     }
 
-    .background {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: url('https://cdn.pixabay.com/photo/2022/03/13/19/06/abstract-7066907_1280.jpg') no-repeat center center;
-      background-size: cover;
-      z-index: -2;
-      filter: blur(5px) brightness(0.4);
+    /* Cool animated stars background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png') repeat;
+      animation: moveStars 100s linear infinite;
+      z-index: -5;
+      opacity: 0.4;
     }
 
-    .overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.75);
-      z-index: -1;
+    @keyframes moveStars {
+      0% { background-position: 0 0; }
+      100% { background-position: -10000px 10000px; }
     }
 
     header {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
-
-    .glass {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 3rem;
       text-align: center;
-      backdrop-filter: blur(15px);
-      box-shadow: 0 0 40px rgba(0, 217, 255, 0.15);
-      max-width: 600px;
-      width: 90%;
-      animation: fadeIn 1s ease-out;
+      padding: 5rem 2rem 3rem;
     }
 
     h1 {
-      font-size: 3rem;
-      color: #00e5ff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
       margin-bottom: 1rem;
-      text-shadow: 0 0 15px #00e5ff, 0 0 30px #00e5ff;
     }
 
-    p {
-      font-size: 1.1rem;
+    p.subtitle {
+      font-size: 1.3rem;
       color: #ccc;
       margin-bottom: 2rem;
-      text-shadow: 0 0 10px #00e5ff;
     }
 
-    .button {
-      background: #00e5ff;
-      color: #000;
-      padding: 0.9rem 2.2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 20px rgba(0, 217, 255, 0.25);
-      cursor: pointer;
+    .download-btn {
       display: inline-block;
+      background: #00ffff;
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      box-shadow: 0 0 25px #00ffff;
+      text-decoration: none;
+      transition: 0.3s ease;
     }
 
-    .button:hover {
-      background: #00bcd4;
-      box-shadow: 0 0 25px rgba(0, 217, 255, 0.35);
-      transform: scale(1.1);
-    }
-
-    .button:active {
-      transform: scale(1);
+    .download-btn:hover {
+      background: #00e0e0;
+      box-shadow: 0 0 35px #00ffff;
+      transform: scale(1.05);
     }
 
     section {
@@ -104,124 +79,94 @@
     }
 
     section h2 {
+      color: #00ffff;
       font-size: 2rem;
-      color: #00e5ff;
       margin-bottom: 1rem;
-      text-shadow: 0 0 15px #00e5ff, 0 0 25px #00e5ff;
+      text-shadow: 0 0 10px #00ffff;
     }
 
-    section p {
+    .glass-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      padding: 2rem;
+      border-radius: 15px;
+      margin-top: 2rem;
+      box-shadow: 0 0 20px rgba(0,255,255,0.1);
+    }
+
+    .glass-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00ffff;
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    .glass-card h3 {
+      color: #00ffff;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .glass-card p {
       color: #ccc;
-      line-height: 1.6;
+      font-size: 1rem;
+      margin-top: 0.5rem;
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
       font-size: 0.9rem;
-      color: #aaa;
-    }
-
-    .profile-section {
-      padding: 4rem 2rem;
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      margin-top: 2rem;
-      transition: transform 0.3s ease;
-    }
-
-    .profile-section:hover {
-      transform: scale(1.05);
-    }
-
-    .profile-section img {
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .profile-section img:hover {
-      transform: rotate(15deg);
-    }
-
-    .profile-section h3 {
-      color: #00e5ff;
-      font-size: 2rem;
-      margin-top: 1rem;
-    }
-
-    .profile-section p {
-      color: #ccc;
-      font-size: 1.1rem;
-      margin-top: 1rem;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      color: #888;
+      padding: 2rem 0;
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      .glass {
-        padding: 2rem;
-      }
+      h1 { font-size: 2.2rem; }
+      .download-btn { font-size: 1rem; padding: 0.8rem 1.8rem; }
     }
   </style>
 </head>
 <body>
-  <div class="background"></div>
-  <div class="overlay"></div>
 
   <header>
-    <div class="glass">
-      <h1>NL Hybrid</h1>
-      <p>Unlock every cosmetic in Fortnite with our powerful stat changer.<br>Access secured with 48-hour keys.</p>
-      <a href="#" class="button">Download NL Hybrid</a>
-    </div>
+    <h1>NL Hybrid</h1>
+    <p class="subtitle">Get every Fortnite cosmetic with our advanced stat changer.<br>Access protected by 48-hour keys.</p>
+    <a href="YOUR_LINK_HERE" class="download-btn">Download NL Hybrid</a>
   </header>
 
   <section>
-    <h2>💠 Features</h2>
-    <p>
-      • Instant access to all Fortnite cosmetics<br>
-      • Secure and undetected stat changer<br>
-      • Simple UI with pro-level performance<br>
-      • Keys expire every 48 hours for max security
-    </p>
+    <h2>💡 Key Features</h2>
+    <div class="glass-card">
+      <p>✔ Unlock all Fortnite cosmetics</p>
+      <p>✔ Safe & secure stat changer</p>
+      <p>✔ Easy-to-use interface</p>
+      <p>✔ Keys expire every 48 hours for protection</p>
+    </div>
   </section>
 
   <section>
-    <h2>📬 Need Help?</h2>
-    <p>Join our Discord for support and updates: <strong>@YourDiscordName</strong></p>
+    <h2>👨‍💻 Developer</h2>
+    <div class="glass-card">
+      <img src="YOUR_DEV_IMAGE_URL_HERE" alt="Dev Profile" />
+      <h3>[Your Name or Alias]</h3>
+      <p>Creator of NL Hybrid. Focused on performance, simplicity, and security. Reach out for updates or help!</p>
+    </div>
   </section>
 
-  <!-- Developer Profile Section -->
-  <section class="profile-section">
-    <h2>👨‍💻 Meet the Developer</h2>
-    <img src="your-image-link-here.jpg" alt="Developer Profile Picture" />
-    <h3>Hey, I'm [Your Name]</h3>
-    <p>
-      I'm the creator of NL Hybrid, and I designed this tool to help you unlock Fortnite's best cosmetics.<br>
-      My goal is to provide an easy-to-use, safe, and secure way for players to elevate their gaming experience.<br>
-      Follow me for updates and support.
-    </p>
+  <section>
+    <h2>📢 Need Help?</h2>
+    <div class="glass-card">
+      <p>Join the Discord: <strong>@YourDiscord</strong></p>
+      <p>Contact for support, key issues, or updates.</p>
+    </div>
   </section>
 
   <footer>
     &copy; 2025 NL Hybrid. All rights reserved.
   </footer>
+
 </body>
 </html>
